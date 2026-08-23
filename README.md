@@ -1,10 +1,10 @@
+<h1 align="center">Focus theme for EmulationStation</h1>
+
 <p align="center">
   <a href="./demo.png">
     <img src="./demo.png" alt="Focus theme demo" width="900">
   </a>
 </p>
-
-<h1 align="center">Focus theme for EmulationStation</h1>
 
 ## About
 
