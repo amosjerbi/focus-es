@@ -1,5 +1,9 @@
 # Focus for EmulationStation
 
+[![Focus theme demo](demo.png)](demo.png)
+
+Focus was inspired by [SocketLauncher](https://www.patreon.com/cw/SocketLauncher).
+
 Focus is a ROCKNIX-focused visual derivative of Art Book Next. It adds a
 plain dark grayscale interface, rounded status/navigation panels, and a native
 three-item GameCarousel with enlarged selected artwork and faded neighbours.
