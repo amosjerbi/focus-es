@@ -12,6 +12,7 @@
       <socketMenuBackground>140e26</socketMenuBackground>
       <socketMenuSelector>514689</socketMenuSelector>
       <socketMenuText>ffffff77</socketMenuText>
+      <socketLightPurple>a293d5</socketLightPurple>
    </variables>
 
    <!-- Top status pills are limited to browsing views so menus stay clean. -->
@@ -160,6 +161,14 @@
       <image name="gamecarouselLogo">
          <roundCorners>0.035</roundCorners>
       </image>
+      <text name="gamecarouselLogoText">
+         <fontPath>${fontRegular}</fontPath>
+         <fontSize>0.029</fontSize>
+         <forceUppercase>false</forceUppercase>
+         <lineSpacing>1</lineSpacing>
+         <color>${socketLightPurple}</color>
+         <backgroundColor>51468918</backgroundColor>
+      </text>
       <image name="logo">
          <origin>0.5 0.5</origin>
          <pos>0.5 0.0725</pos>
