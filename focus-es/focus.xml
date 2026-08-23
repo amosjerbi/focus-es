@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<theme>
+   <formatVersion>7</formatVersion>
+
+   <variables>
+      <socketBackground>17191d</socketBackground>
+      <socketPanel>25282d</socketPanel>
+      <socketPanelSoft>30343a</socketPanelSoft>
+      <socketWhite>f2f2f2</socketWhite>
+      <socketMuted>a7abb2</socketMuted>
+      <socketBlack>090a0c</socketBlack>
+      <socketMenuBackground>140e26</socketMenuBackground>
+      <socketMenuSelector>514689</socketMenuSelector>
+      <socketMenuText>ffffff77</socketMenuText>
+   </variables>
+
+   <!-- Top status pills are limited to browsing views so menus stay clean. -->
+   <view name="system,gamecarousel">
+      <clock name="socket-clock" extra="static">
+         <origin>0.5 0.5</origin>
+         <pos>0.125 0.0725</pos>
+         <size>0.17 0.055</size>
+         <fontPath>${fontBold}</fontPath>
+         <fontSize>0.043</fontSize>
+         <alignment>center</alignment>
+         <color>${socketWhite}</color>
+         <zIndex>91</zIndex>
+      </clock>
+      <stackpanel name="socket-status" extra="static">
+         <pos>0.795 0.052</pos>
+         <size>0.16 0.045</size>
+         <orientation>horizontal</orientation>
+         <reverse>true</reverse>
+         <separator>6</separator>
+         <zIndex>91</zIndex>
+         <batteryText name="socket-battery-text">
+            <fontPath>${fontBold}</fontPath>
+            <fontSize>0.035</fontSize>
+            <color>${socketWhite}</color>
+         </batteryText>
+         <networkIcon name="socket-network-icon">
+            <maxSize>1 1</maxSize>
+            <color>${socketWhite}</color>
+            <networkIcon>./_inc/images/network-icon-on.svg</networkIcon>
+            <planemodeIcon>./_inc/images/network-icon-off.svg</planemodeIcon>
+         </networkIcon>
+      </stackpanel>
+   </view>
+
+   <!-- Shared Socket surfaces. -->
+   <view name="system,gamecarousel">
+      <stackpanel name="system-indicators">
+         <visible>false</visible>
+      </stackpanel>
+      <image name="background" extra="true">
+         <pos>0 0</pos>
+         <size>1 1</size>
+         <path>${spacerImage}</path>
+         <tile>true</tile>
+         <color>${socketMenuBackground}</color>
+         <zIndex>0</zIndex>
+      </image>
+      <image name="help-background" extra="true">
+         <visible>false</visible>
+      </image>
+      <text name="socket-left-trigger" extra="static">
+         <origin>0.5 0.5</origin>
+         <pos>0.285 0.0725</pos>
+         <size>0.05 0.055</size>
+         <text>L</text>
+         <fontPath>${fontBold}</fontPath>
+         <fontSize>0.032</fontSize>
+         <alignment>center</alignment>
+         <verticalAlignment>center</verticalAlignment>
+         <backgroundColor>${socketMenuSelector}</backgroundColor>
+         <color>${socketWhite}</color>
+         <zIndex>82</zIndex>
+      </text>
+      <text name="socket-right-trigger" extra="static">
+         <origin>0.5 0.5</origin>
+         <pos>0.715 0.0725</pos>
+         <size>0.05 0.055</size>
+         <text>R</text>
+         <fontPath>${fontBold}</fontPath>
+         <fontSize>0.032</fontSize>
+         <alignment>center</alignment>
+         <verticalAlignment>center</verticalAlignment>
+         <backgroundColor>${socketMenuSelector}</backgroundColor>
+         <color>${socketWhite}</color>
+         <zIndex>82</zIndex>
+      </text>
+      <helpsystem name="help">
+         <origin>0.5 0.5</origin>
+         <pos>2 2</pos>
+         <fontPath>${fontBold}</fontPath>
+         <fontSize>0.026</fontSize>
+         <textColor>${socketWhite}</textColor>
+         <iconColor>${socketWhite}</iconColor>
+      </helpsystem>
+   </view>
+
+   <!-- System carousel: large selected platform with faded neighbours. -->
+   <view name="system">
+      <text name="socket-system-tab-title" extra="static">
+         <origin>0.5 0.5</origin>
+         <pos>0.5 0.0725</pos>
+         <size>0.34 0.055</size>
+         <text>LIBRARY</text>
+         <fontPath>${fontBold}</fontPath>
+         <fontSize>0.037</fontSize>
+         <alignment>center</alignment>
+         <verticalAlignment>center</verticalAlignment>
+         <color>${socketWhite}</color>
+         <zIndex>82</zIndex>
+      </text>
+      <rectangle name="socket-system-stage" extra="true">
+         <pos>0.305 0.175</pos>
+         <size>0.39 0.50</size>
+         <color>51468922</color>
+         <roundCorners>0.04</roundCorners>
+         <zIndex>1</zIndex>
+      </rectangle>
+      <carousel name="systemcarousel">
+         <origin>0 0</origin>
+         <pos>0.02 0.15</pos>
+         <size>0.96 0.56</size>
+         <type>horizontal</type>
+         <logoSize>0.25 0.36</logoSize>
+         <logoScale>1.45</logoScale>
+         <scaledLogoSpacing>1.12</scaledLogoSpacing>
+         <maxLogoCount>3</maxLogoCount>
+         <minLogoOpacity>0.28</minLogoOpacity>
+         <color>00000000</color>
+         <defaultTransition>slide</defaultTransition>
+         <transitionSpeed>350</transitionSpeed>
+         <zIndex>3</zIndex>
+      </carousel>
+      <image name="system-logo" extra="true">
+         <visible>false</visible>
+      </image>
+      <text name="system-name" extra="true">
+         <visible>false</visible>
+      </text>
+      <text name="socket-system-name" extra="true">
+         <origin>0.5 0.5</origin>
+         <pos>0.5 0.795</pos>
+         <size>0.58 0.065</size>
+         <text>${system.fullName}</text>
+         <fontPath>${fontBold}</fontPath>
+         <fontSize>0.043</fontSize>
+         <alignment>center</alignment>
+         <verticalAlignment>center</verticalAlignment>
+         <color>${socketWhite}</color>
+         <zIndex>11</zIndex>
+      </text>
+   </view>
+
+   <!-- Native game carousel: artwork neighbours are real adjacent games. -->
+   <view name="gamecarousel">
+      <image name="gamecarouselLogo">
+         <roundCorners>0.035</roundCorners>
+      </image>
+      <image name="logo">
+         <origin>0.5 0.5</origin>
+         <pos>0.5 0.0725</pos>
+         <maxSize>0.28 0.060</maxSize>
+         <path>./_inc/systems/logos/${system.theme}.svg</path>
+         <color>${socketWhite}</color>
+         <zIndex>82</zIndex>
+      </image>
+      <text name="logoText">
+         <origin>0.5 0.5</origin>
+         <pos>0.5 0.0725</pos>
+         <size>0.32 0.055</size>
+         <fontPath>${fontBold}</fontPath>
+         <fontSize>0.035</fontSize>
+         <alignment>center</alignment>
+         <verticalAlignment>center</verticalAlignment>
+         <color>${socketWhite}</color>
+         <zIndex>81</zIndex>
+      </text>
+      <gamecarousel name="gamecarousel">
+         <origin>0 0</origin>
+         <pos>0.015 0.145</pos>
+         <size>0.97 0.55</size>
+         <type>horizontal</type>
+         <logoSize>0.27 0.61</logoSize>
+         <logoScale>1.48</logoScale>
+         <scaledLogoSpacing>1.08</scaledLogoSpacing>
+         <maxLogoCount>3</maxLogoCount>
+         <minLogoOpacity>0.25</minLogoOpacity>
+         <imageSource>thumbnail</imageSource>
+         <color>00000000</color>
+         <defaultTransition>slide</defaultTransition>
+         <transitionSpeed>350</transitionSpeed>
+         <zIndex>5</zIndex>
+      </gamecarousel>
+      <text name="md_name">
+         <origin>0.5 0.5</origin>
+         <pos>0.5 0.7675</pos>
+         <size>0.82 0.065</size>
+         <fontPath>${fontBold}</fontPath>
+         <fontSize>0.040</fontSize>
+         <alignment>center</alignment>
+         <verticalAlignment>center</verticalAlignment>
+         <color>${socketWhite}</color>
+         <visible>true</visible>
+         <zIndex>22</zIndex>
+      </text>
+      <text name="socket-mainstory" extra="true">
+         <origin>0.5 0.5</origin>
+         <pos>0.18 0.875</pos>
+         <size>0.31 0.055</size>
+         <text>"Avg. Main: " + (empty({game:arcadesystemname}) ? "Unknown" : {game:arcadesystemname})</text>
+         <fontPath>${fontBold}</fontPath>
+         <fontSize>0.029</fontSize>
+         <alignment>center</alignment>
+         <color>${socketMuted}</color>
+         <zIndex>15</zIndex>
+      </text>
+      <text name="socket-playtime" extra="true">
+         <origin>0.5 0.5</origin>
+         <pos>0.5 0.875</pos>
+         <size>0.31 0.055</size>
+         <text>"Play Time: " + ({game:gametime} &gt; 0 ? expandseconds({game:gametime}) : "None")</text>
+         <fontPath>${fontBold}</fontPath>
+         <fontSize>0.029</fontSize>
+         <alignment>center</alignment>
+         <color>${socketMuted}</color>
+         <zIndex>15</zIndex>
+      </text>
+      <text name="socket-lastplayed" extra="true">
+         <origin>0.5 0.5</origin>
+         <pos>0.82 0.875</pos>
+         <size>0.31 0.055</size>
+         <text>"Last Played: " + ({game:playcount} &gt; 0 ? elapsed({game:lastplayed}) : "Never")</text>
+         <fontPath>${fontBold}</fontPath>
+         <fontSize>0.029</fontSize>
+         <alignment>center</alignment>
+         <color>${socketMuted}</color>
+         <zIndex>15</zIndex>
+      </text>
+      <datetime name="md_releasedate,md_lastplayed">
+         <visible>false</visible>
+      </datetime>
+      <text name="md_description,md_players,md_genre,md_developer,md_publisher,md_playcount,md_gametime">
+         <visible>false</visible>
+      </text>
+      <rating name="md_rating">
+         <visible>false</visible>
+      </rating>
+   </view>
+
+   <!-- Keep menus in the same dark grayscale family. -->
+   <view name="menu">
+      <menuText name="menutitle">
+         <color>${socketWhite}</color>
+         <selectorColor>00000000</selectorColor>
+      </menuText>
+      <menuText name="menutext">
+         <color>${socketMenuText}</color>
+         <selectedColor>${socketWhite}</selectedColor>
+         <selectorColor>${socketMenuSelector}</selectorColor>
+         <separatorColor>00000000</separatorColor>
+      </menuText>
+      <menuTextSmall name="menutextsmall">
+         <color>${socketMenuText}</color>
+      </menuTextSmall>
+      <menuText name="menufooter">
+         <color>${socketMenuText}</color>
+      </menuText>
+      <menuBackground name="menubg">
+         <path>${spacerImage}</path>
+         <color>${socketMenuBackground}</color>
+         <cornerSize>1 1</cornerSize>
+      </menuBackground>
+      <menuButton name="menubutton">
+         <path>./_inc/images/transparent.svg</path>
+         <filledPath>./_inc/images/transparent.svg</filledPath>
+         <cornerSize>1 1</cornerSize>
+      </menuButton>
+   </view>
+</theme>

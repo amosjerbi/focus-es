@@ -1,0 +1,340 @@
+<!-- 
+4:3 aspect ratio
+based on 640x480
+-->
+<theme>
+   <formatVersion>7</formatVersion>
+
+   <!--
+   ///
+   View: All
+   ///
+   -->
+   <view name="system,basic,detailed">
+      <stackpanel name="system-indicators" extra="true">
+         <w>0.96875</w><!-- 620 -->
+         <separator>0.015625</separator>
+      </stackpanel>
+      <helpsystem ifHelpPrompts="true" name="help">
+         <fontSize ifSubset="font-size:small|default|large">0.03125</fontSize><!-- 15 -->
+         <fontSize ifSubset="font-size:xlarge">0.03958333</fontSize><!-- 19 -->
+      </helpsystem>
+   </view>
+
+   <!--
+   ///
+   View: System
+   ///
+   -->
+   <view name="system" ifSubset="system-view-artwork:outline">
+      <carousel name="systemcarousel">
+         <logoSize>1.025 1.025</logoSize>
+         <maxLogoCount>4</maxLogoCount>
+      </carousel>
+      <image name="system-logo">
+         <maxSize>0.6 0.4</maxSize>
+      </image>
+   </view>
+   <!--
+   ///
+   View: Gamelist (All)
+   ///
+   -->
+   <view name="basic,detailed">
+      <image name="logo">
+         <maxSize>0.359375 0.104166666666667</maxSize><!-- 230 50 -->
+      </image>
+      <text name="logoText">
+         <size>0.359375 0.104166666666667</size><!-- 230 50 -->
+      </text>
+      <textlist name="gamelist">
+         <x>0.046875</x><!-- 30 -->
+      </textlist>
+   </view>
+
+   <!--
+   ///
+   View: Gamelist (Basic)
+   ///
+   -->
+   <view name="basic">
+      <image name="logo">
+         <x>0.5</x><!-- 50% -->
+      </image>
+      <text name="logoText">
+         <x>0.5</x><!-- 50% -->
+      </text>
+      <textlist name="gamelist">
+         <w>0.890625</w><!-- 570 -->
+         <h ifHelpPrompts="true">0.46</h>
+         <h ifHelpPrompts="false">0.58</h>
+      </textlist>
+      <image name="basic-metadata-footer" extra="true">
+         <origin>0 0</origin>
+         <pos ifHelpPrompts="true">0 0.735416666666667</pos><!-- 0 353 -->
+         <pos ifHelpPrompts="false">0 0.85</pos><!-- 0 408 -->
+         <size>1 0.15</size><!-- 640 72 -->
+         <path>${spacerImage}</path>
+         <tile>true</tile>
+         <color>${gamelistListBackgroundColor}</color>
+         <zIndex>5</zIndex>
+      </image>
+      <text name="basic-playtime-label,basic-lastplayed-label" extra="true">
+         <origin>0.5 0.5</origin>
+         <size>0.44 0.041666666666667</size><!-- 282 20 -->
+         <y ifHelpPrompts="true">0.775</y><!-- 372 -->
+         <y ifHelpPrompts="false">0.889583333333333</y><!-- 427 -->
+         <fontPath>${fontBold}</fontPath>
+         <fontSize ifSubset="font-size:small|default">0.029166666666667</fontSize><!-- 14 -->
+         <fontSize ifSubset="font-size:large|xlarge">0.033333333333333</fontSize><!-- 16 -->
+         <alignment>center</alignment>
+         <verticalAlignment>center</verticalAlignment>
+         <color>${gamelistListMetadataColor}</color>
+         <zIndex>7</zIndex>
+      </text>
+      <text name="basic-playtime-value,basic-lastplayed-value" extra="true">
+         <origin>0.5 0.5</origin>
+         <size>0.44 0.05</size><!-- 282 24 -->
+         <y ifHelpPrompts="true">0.825</y><!-- 396 -->
+         <y ifHelpPrompts="false">0.939583333333333</y><!-- 451 -->
+         <fontPath>${fontBold}</fontPath>
+         <fontSize ifSubset="font-size:small|default">0.033333333333333</fontSize><!-- 16 -->
+         <fontSize ifSubset="font-size:large|xlarge">0.0375</fontSize><!-- 18 -->
+         <alignment>center</alignment>
+         <verticalAlignment>center</verticalAlignment>
+         <color>${gamelistListTextlistSelectedColor}</color>
+         <zIndex>7</zIndex>
+      </text>
+      <text name="basic-playtime-label">
+         <x>0.25</x>
+         <text>Play Time</text>
+      </text>
+      <text name="basic-playtime-value">
+         <x>0.25</x>
+         <text>{game:gametime} > 0 ? expandseconds({game:gametime}) : "None"</text>
+      </text>
+      <text name="basic-lastplayed-label">
+         <x>0.75</x>
+         <text>Last Played</text>
+      </text>
+      <text name="basic-lastplayed-value">
+         <x>0.75</x>
+         <text>{game:playcount} > 0 ? elapsed({game:lastplayed}) : "Never"</text>
+      </text>
+   </view>
+
+   <!--
+   ///
+   View: Gamelist (Detailed)
+   ///
+   -->
+   <view name="detailed">
+      <image name="gamelist-background" extra="true">
+         <size>0.5 1</size><!-- 50% 100% -->
+      </image>
+      <image name="logo">
+         <x>0.25</x><!-- 25% -->
+      </image>
+      <text name="logoText">
+         <x>0.25</x><!-- 25% -->
+      </text>
+      <textlist name="gamelist">
+         <w>0.390625</w><!-- 250 -->
+      </textlist>
+   </view>
+
+   <!--
+   ///
+   View: Gamelist (Detailed - Metadata On)
+   ///
+   -->
+   <view name="detailed" ifSubset="gamelist-view-metadata:on|play-stats|mixed">
+      <!-- Video -->
+      <video name="game-video" extra="true">
+         <pos>0.75 0.25</pos><!-- 480 120 -->
+         <minSize>0.5 0.541666666666667</minSize><!-- 320 260 -->
+      </video>
+      <!-- Boxart & Image -->
+      <image ifSubset="gamelist-view-artwork:boxart|logo|image" name="game-artwork" extra="true">
+         <pos>0.75 0.2916666666666667</pos><!-- 480 140 -->
+         <maxSize>0.40625 0.4583333333333333</maxSize><!-- 260 220 -->
+      </image>
+      <!-- Image (Cropped) -->
+      <image ifSubset="gamelist-view-artwork:image-cropped" name="game-artwork" extra="true">
+         <pos>0.75 0.25</pos><!-- 480 120 -->
+         <minSize>0.5 0.541666666666667</minSize><!-- 320 260 -->
+      </image>
+      <!-- Marquee -->
+      <image ifSubset="gamelist-view-artwork:image-cropped" name="game-logo" extra="true">
+         <origin>0.5 1</origin>
+         <pos>0.75 0.541666666666667</pos><!-- 480 260 -->
+         <maxSize>0.296875 0.125</maxSize><!-- 190 60 -->
+      </image>
+      <text name="game-description" extra="true">
+         <x>0.55078125</x><!-- 352.5 -->
+         <y ifHelpPrompts="true">0.58125</y><!-- 279 -->
+         <y ifHelpPrompts="false">0.710416666666667</y><!-- 341 -->
+         <w>0.3984375</w><!-- 255 -->
+         <h ifHelpPrompts="true">0.17</h><!-- leave room for metadata above help prompts -->
+         <h ifHelpPrompts="false">0.25</h><!-- 120 -->
+         <lineSpacing ifSubset="font-size:small">1.46</lineSpacing>
+         <lineSpacing ifSubset="font-size:default|large">1.21</lineSpacing>
+      </text>
+   </view>
+   <variables ifSubset="gamelist-view-metadata:on">
+      <gamelistMetadataFontSize ifSubset="font-size:small">0.03125</gamelistMetadataFontSize><!-- 15 -->
+      <gamelistMetadataFontSize ifSubset="font-size:default">0.035416666666667</gamelistMetadataFontSize><!-- 17 -->
+      <gamelistMetadataFontSize ifSubset="font-size:large">0.039583333333333</gamelistMetadataFontSize><!-- 19 -->
+      <gamelistMetadataFontSize ifSubset="font-size:xlarge">0.04791667</gamelistMetadataFontSize><!-- 23 -->
+   </variables>
+   <view name="detailed" ifSubset="gamelist-view-metadata:on|play-stats|mixed">
+      <image name="game-releasedate-icon">
+         <pos ifHelpPrompts="true">0.55078125 0.775</pos>
+         <pos ifHelpPrompts="false">0.55078125 0.575</pos><!-- 352.5 276 -->
+         <maxSize>0.03125 0.0416666666666667</maxSize><!-- 20 20 -->
+         <visible>false</visible>
+      </image>
+      <datetime name="md_releasedate">
+         <pos ifHelpPrompts="true">0.59375 0.775</pos>
+         <pos ifHelpPrompts="false">0.59375 0.575</pos><!-- 380 276 -->
+         <format ifSubset="font-size:small">%Y-%m-%d</format>
+         <format ifSubset="font-size:default|large">%Y-%m</format>
+         <format ifSubset="font-size:xlarge">%Y</format>
+         <visible>false</visible>
+         <fontSize>${gamelistMetadataFontSize}</fontSize>
+      </datetime>
+      <rating name="md_rating">
+         <origin>1 0.5</origin>
+         <pos ifHelpPrompts="true">0.953125 0.775</pos>
+         <pos ifHelpPrompts="false">0.953125 0.575</pos><!-- 610 276 -->
+         <size ifSubset="font-size:small">0 0.0375</size><!-- - 18 --> 
+         <size ifSubset="font-size:default|large">0 0.045833333333333</size><!-- - 20 --> 
+         <size ifSubset="font-size:xlarge">0 0.05</size><!-- - 24 --> 
+         <visible>false</visible>
+      </rating>
+      <text name="game-mainstory-label" extra="true">
+         <origin>0 0.5</origin>
+         <pos ifHelpPrompts="true">0.55078125 0.775</pos>
+         <pos ifHelpPrompts="false">0.55078125 0.575</pos><!-- 352.5 276 -->
+         <size>0.21875 0.041666666666667</size><!-- 140 20 -->
+         <fontPath>${fontBold}</fontPath>
+         <fontSize ifSubset="font-size:small|default">0.029166666666667</fontSize><!-- 14 -->
+         <fontSize ifSubset="font-size:large|xlarge">0.033333333333333</fontSize><!-- 16 -->
+         <verticalAlignment>center</verticalAlignment>
+         <color>${gamelistListMetadataColor}</color>
+         <text>Avg. Main Story</text>
+      </text>
+      <text name="game-mainstory-value" extra="true">
+         <origin>0 0.5</origin>
+         <pos ifHelpPrompts="true">0.78125 0.775</pos>
+         <pos ifHelpPrompts="false">0.78125 0.575</pos><!-- 500 276 -->
+         <size>0.171875 0.041666666666667</size><!-- 110 20 -->
+         <fontPath>${fontBold}</fontPath>
+         <fontSize>${gamelistMetadataFontSize}</fontSize>
+         <alignment>right</alignment>
+         <verticalAlignment>center</verticalAlignment>
+         <color>${gamelistListMetadataColor}</color>
+         <text>empty({game:arcadesystemname}) ? "Unknown" : {game:arcadesystemname}</text>
+      </text>
+      <image name="game-gametime-icon">
+         <pos ifHelpPrompts="true">0.55078125 0.820833333333333</pos>
+         <pos ifHelpPrompts="false">0.55078125 0.620833333333333</pos><!-- 352.5 298 -->
+         <maxSize>0.03125 0.0416666666666667</maxSize><!-- 20 20 -->
+         <visible>false</visible>
+      </image>
+      <text name="game-gametime-label" extra="true">
+         <origin>0 0.5</origin>
+         <pos ifHelpPrompts="true">0.55078125 0.820833333333333</pos>
+         <pos ifHelpPrompts="false">0.55078125 0.620833333333333</pos><!-- 352.5 298 -->
+         <size>0.1875 0.041666666666667</size><!-- 120 20 -->
+         <fontPath>${fontBold}</fontPath>
+         <fontSize>${gamelistMetadataFontSize}</fontSize>
+         <verticalAlignment>center</verticalAlignment>
+         <color>${gamelistListMetadataColor}</color>
+         <text>Play Time</text>
+      </text>
+      <text name="game-gametime-formatted">
+         <pos ifHelpPrompts="true">0.75 0.820833333333333</pos>
+         <pos ifHelpPrompts="false">0.75 0.620833333333333</pos><!-- 480 298 -->
+         <size>0.203125 0.041666666666667</size><!-- 130 20 -->
+         <alignment>right</alignment>
+         <visible>true</visible>
+      </text>
+      <image name="game-lastplayed-icon">
+         <pos ifHelpPrompts="true">0.55078125 0.866666666666667</pos>
+         <pos ifHelpPrompts="false">0.55078125 0.666666666666667</pos><!-- 352.5 320 -->
+         <maxSize>0.03125 0.0416666666666667</maxSize><!-- 20 20 -->
+         <visible>false</visible>
+      </image>
+      <text name="game-lastplayed-label" extra="true">
+         <origin>0 0.5</origin>
+         <pos ifHelpPrompts="true">0.55078125 0.866666666666667</pos>
+         <pos ifHelpPrompts="false">0.55078125 0.666666666666667</pos><!-- 352.5 320 -->
+         <size>0.1875 0.041666666666667</size><!-- 120 20 -->
+         <fontPath>${fontBold}</fontPath>
+         <fontSize>${gamelistMetadataFontSize}</fontSize>
+         <verticalAlignment>center</verticalAlignment>
+         <color>${gamelistListMetadataColor}</color>
+         <text>Last Played</text>
+      </text>
+      <text name="game-lastplayed-formatted">
+         <pos ifHelpPrompts="true">0.75 0.866666666666667</pos>
+         <pos ifHelpPrompts="false">0.75 0.666666666666667</pos><!-- 480 320 -->
+         <size>0.203125 0.041666666666667</size><!-- 130 20 -->
+         <alignment>right</alignment>
+         <visible>true</visible>
+      </text>
+   </view>
+   <variables ifSubset="gamelist-view-metadata:play-stats|mixed">
+      <gamelistMetadataFontSize ifSubset="font-size:small">0.033333333333333</gamelistMetadataFontSize><!-- 16 -->
+      <gamelistMetadataFontSize ifSubset="font-size:default|large,gamelist-view-metadata:play-stats">0.0375</gamelistMetadataFontSize><!-- 18 -->
+      <gamelistMetadataFontSize ifSubset="font-size:default|large,gamelist-view-metadata:mixed">0.033333333333333</gamelistMetadataFontSize><!-- 16 -->
+      <gamelistMetadataFontSize ifSubset="font-size:xlarge,gamelist-view-metadata:play-stats">0.05</gamelistMetadataFontSize><!-- 24 -->
+      <gamelistMetadataFontSize ifSubset="font-size:xlarge,gamelist-view-metadata:mixed">0.04583333</gamelistMetadataFontSize><!-- 22 -->
+   </variables>
+
+   <!--
+   ///
+   View: Gamelist (Detailed - Metadata Off)
+   ///
+   -->
+   <view name="detailed" ifSubset="gamelist-view-metadata:off">
+      <!-- Video -->
+      <video ifHelpPrompts="true" name="game-video" extra="true">
+         <pos>0.75 0.442708333333333</pos><!-- 480 212.5 -->
+         <minSize>0.5 0.885416666666667</minSize><!-- 320 425 -->
+      </video>
+      <video ifHelpPrompts="false" name="game-video" extra="true">
+         <pos>0.75 0.5</pos><!-- 480 240 -->
+         <minSize>0.5 1</minSize><!-- 320 480-->
+      </video>
+      <!-- Boxart & Image -->
+      <image ifHelpPrompts="true" ifSubset="gamelist-view-artwork:boxart|logo|image" name="game-artwork" extra="true">
+         <pos>0.734375 0.447916666666667</pos><!-- 470 215 -->
+         <maxSize>0.40625 0.75</maxSize><!-- 260 360 -->
+      </image>
+      <image ifHelpPrompts="false" ifSubset="gamelist-view-artwork:boxart|logo|image" name="game-artwork" extra="true">
+         <pos>0.734375 0.5</pos><!-- 470 240 -->
+         <maxSize>0.40625 0.864583333333333</maxSize><!-- 260 415 -->
+      </image>
+      <!-- Image (Cropped) -->
+      <image ifHelpPrompts="true" ifSubset="gamelist-view-artwork:image-cropped" name="game-artwork" extra="true">
+         <pos>0.75 0.442708333333333</pos><!-- 480 212.5 -->
+         <minSize>0.5 0.885416666666667</minSize><!-- 320 425 -->
+      </image>
+      <image ifHelpPrompts="false" ifSubset="gamelist-view-artwork:image-cropped" name="game-artwork" extra="true">
+         <pos>0.75 0.5</pos><!-- 480 240 -->
+         <minSize>0.5 1</minSize><!-- 320 480-->
+      </image>
+      <!-- Marquee -->
+      <image ifHelpPrompts="true" ifSubset="gamelist-view-artwork:image-cropped" name="game-logo" extra="true">
+         <pos>0.75 0.442708333333333</pos><!-- 480 212.5 -->
+         <maxSize>0.359375 0.625</maxSize><!-- 230 300 -->
+      </image>
+      <image ifHelpPrompts="false" ifSubset="gamelist-view-artwork:image-cropped" name="game-logo" extra="true">
+         <pos>0.75 0.5</pos><!-- 480 240 -->
+         <maxSize>0.359375 0.625</maxSize><!-- 230 300 -->
+      </image>
+   </view>
+
+</theme>
