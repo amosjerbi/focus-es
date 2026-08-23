@@ -1,15 +1,10 @@
-<h1 align="center">Focus for EmulationStation</h1>
-
 <p align="center">
   <a href="./demo.png">
     <img src="./demo.png" alt="Focus theme demo" width="900">
   </a>
 </p>
 
-<p align="center">
-  A cover-focused ROCKNIX theme inspired by
-  <a href="https://www.patreon.com/cw/SocketLauncher">SocketLauncher</a>.
-</p>
+<h1 align="center">Focus theme for EmulationStation</h1>
 
 ## About
 
