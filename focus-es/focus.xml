@@ -2,7 +2,7 @@
 <theme>
    <formatVersion>7</formatVersion>
 
-   <variables>
+   <variables ifSubset="color-scheme:light">
       <socketBackground>17191d</socketBackground>
       <socketPanel>25282d</socketPanel>
       <socketPanelSoft>30343a</socketPanelSoft>
@@ -13,6 +13,60 @@
       <socketMenuSelector>514689</socketMenuSelector>
       <socketMenuText>ffffff77</socketMenuText>
       <socketLightPurple>a293d5</socketLightPurple>
+      <socketSystemStage>00000000</socketSystemStage>
+      <socketPreviewStage>51468922</socketPreviewStage>
+      <socketTextBadgeBackground>51468918</socketTextBadgeBackground>
+   </variables>
+
+   <!-- Soft monochrome palette based on the Modern interface reference. -->
+   <variables ifSubset="color-scheme:modern">
+      <socketBackground>f1eff1</socketBackground>
+      <socketPanel>ffffff</socketPanel>
+      <socketPanelSoft>e8e6e8</socketPanelSoft>
+      <socketWhite>252329</socketWhite>
+      <socketMuted>69666d</socketMuted>
+      <socketBlack>ffffff</socketBlack>
+      <socketMenuBackground>f1eff1</socketMenuBackground>
+      <socketMenuSelector>dedbdf</socketMenuSelector>
+      <socketMenuText>4f4b52</socketMenuText>
+      <socketLightPurple>252329</socketLightPurple>
+      <socketSystemStage>00000000</socketSystemStage>
+      <socketPreviewStage>ffffffb8</socketPreviewStage>
+      <socketTextBadgeBackground>dedbdf80</socketTextBadgeBackground>
+   </variables>
+
+   <!-- Focus mappings for the system theme's original Famicom palette. -->
+   <variables ifSubset="color-scheme:famicom">
+      <socketBackground>000000</socketBackground>
+      <socketPanel>DCD6B6</socketPanel>
+      <socketPanelSoft>4d1116</socketPanelSoft>
+      <socketWhite>DCD6B6</socketWhite>
+      <socketMuted>DCD6B6aa</socketMuted>
+      <socketBlack>0e0304</socketBlack>
+      <socketMenuBackground>2f090e</socketMenuBackground>
+      <socketMenuSelector>4d1116</socketMenuSelector>
+      <socketMenuText>DCD6B6aa</socketMenuText>
+      <socketLightPurple>DCD6B6</socketLightPurple>
+      <socketSystemStage>00000000</socketSystemStage>
+      <socketPreviewStage>4d111633</socketPreviewStage>
+      <socketTextBadgeBackground>4d111633</socketTextBadgeBackground>
+   </variables>
+
+   <!-- Persona palette based on the supplied bright-yellow menu reference. -->
+   <variables ifSubset="color-scheme:persona">
+      <socketBackground>FFD42A</socketBackground>
+      <socketPanel>FFF56B</socketPanel>
+      <socketPanelSoft>FFE34D</socketPanelSoft>
+      <socketWhite>1D1D1D</socketWhite>
+      <socketMuted>5A4D18</socketMuted>
+      <socketBlack>111111</socketBlack>
+      <socketMenuBackground>FFD42A</socketMenuBackground>
+      <socketMenuSelector>1D1D1D</socketMenuSelector>
+      <socketMenuText>2A2410</socketMenuText>
+      <socketLightPurple>FFA51F</socketLightPurple>
+      <socketSystemStage>00000000</socketSystemStage>
+      <socketPreviewStage>FFF56BCC</socketPreviewStage>
+      <socketTextBadgeBackground>FFF56BCC</socketTextBadgeBackground>
    </variables>
 
    <!-- Top status pills are limited to browsing views so menus stay clean. -->
@@ -74,6 +128,7 @@
          <alignment>center</alignment>
          <verticalAlignment>center</verticalAlignment>
          <backgroundColor>${socketMenuSelector}</backgroundColor>
+         <backgroundColor ifSubset="color-scheme:persona">EEAA42</backgroundColor>
          <color>${socketWhite}</color>
          <zIndex>82</zIndex>
       </text>
@@ -87,6 +142,7 @@
          <alignment>center</alignment>
          <verticalAlignment>center</verticalAlignment>
          <backgroundColor>${socketMenuSelector}</backgroundColor>
+         <backgroundColor ifSubset="color-scheme:persona">EEAA42</backgroundColor>
          <color>${socketWhite}</color>
          <zIndex>82</zIndex>
       </text>
@@ -117,7 +173,7 @@
       <rectangle name="socket-system-stage" extra="true">
          <pos>0.305 0.175</pos>
          <size>0.39 0.50</size>
-         <color>51468922</color>
+         <color>${socketSystemStage}</color>
          <roundCorners>0.04</roundCorners>
          <zIndex>1</zIndex>
       </rectangle>
@@ -167,7 +223,7 @@
          <forceUppercase>false</forceUppercase>
          <lineSpacing>1</lineSpacing>
          <color>${socketLightPurple}</color>
-         <backgroundColor>51468918</backgroundColor>
+         <backgroundColor>${socketTextBadgeBackground}</backgroundColor>
       </text>
       <image name="logo">
          <origin>0.5 0.5</origin>
@@ -264,22 +320,29 @@
    <view name="menu">
       <menuText name="menutitle">
          <color>${socketWhite}</color>
+         <color ifSubset="color-scheme:persona">EEAA42</color>
          <selectorColor>00000000</selectorColor>
       </menuText>
       <menuText name="menutext">
          <color>${socketMenuText}</color>
          <selectedColor>${socketWhite}</selectedColor>
+         <selectedColor ifSubset="color-scheme:persona">ffffff</selectedColor>
          <selectorColor>${socketMenuSelector}</selectorColor>
          <separatorColor>00000000</separatorColor>
       </menuText>
       <menuTextSmall name="menutextsmall">
          <color>${socketMenuText}</color>
       </menuTextSmall>
+      <menuGroup name="menugroup">
+         <color ifSubset="color-scheme:persona">EEAA42</color>
+         <separatorColor ifSubset="color-scheme:persona">EEAA42</separatorColor>
+      </menuGroup>
       <menuText name="menufooter">
          <color>${socketMenuText}</color>
       </menuText>
       <menuBackground name="menubg">
          <path>${spacerImage}</path>
+         <fadePath>./_inc/images/transparent.svg</fadePath>
          <color>${socketMenuBackground}</color>
          <cornerSize>1 1</cornerSize>
       </menuBackground>
